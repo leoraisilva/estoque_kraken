@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -49,20 +51,19 @@ public class EstoqueController {
     @PostMapping
     public ResponseEntity<Object> cadastrarEstoque (@RequestBody @Valid EstoqueDTO estoqueDTO) {
         EstoqueModel estoqueModel = new EstoqueModel ();
-        if(estoqueService.containerPosicao(estoqueDTO.posicao()))
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict, Already registry posicao");
         BeanUtils.copyProperties(estoqueDTO, estoqueModel);
+        estoqueModel.setDataAtualizacao(LocalDateTime.now(ZoneId.of("America")));
         return ResponseEntity.status(HttpStatus.CREATED).body(estoqueService.getEstoqueRepository().save(estoqueModel));
     }
 
     @PutMapping ("/{id}")
     public ResponseEntity<Object> alterarEstoque (@PathVariable (value = "id") UUID id, @RequestBody @Valid EstoqueDTO estoqueDTO) {
         Optional<EstoqueModel> estoqueModelOptional = estoqueService.getEstoqueRepository().findById(id);
-        if(estoqueService.containerPosicao(estoqueDTO.posicao()))
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict, Already registry posicao");
+        if(!estoqueModelOptional.isPresent())
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not Found Estoque");
         estoqueModelOptional.get().setNomeEstoque(estoqueDTO.nomeEstoque());
         estoqueModelOptional.get().setQuantidadePosicao(estoqueDTO.quantidadePosicao());
-        estoqueModelOptional.get().setPosicao(estoqueDTO.posicao());
+        estoqueModelOptional.get().setDataAtualizacao(LocalDateTime.now(ZoneId.of("America")));
         return ResponseEntity.status(HttpStatus.CREATED).body(estoqueService.getEstoqueRepository().save(estoqueModelOptional.get()));
     }
 }

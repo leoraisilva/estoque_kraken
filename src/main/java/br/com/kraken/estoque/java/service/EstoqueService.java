@@ -20,19 +20,4 @@ public class EstoqueService {
         return estoqueRepository;
     }
 
-    public boolean containerPosicao(List<String> list) {
-        List<EstoqueModel> listAll = StreamSupport.stream(estoqueRepository.findAll().spliterator(), false).toList();
-        List<String> posicaoAll = listAll
-                .stream()
-                .flatMap(posicao -> posicao.getPosicao().stream())
-                .toList();
-        for (String value : list){
-            for (int i = 0; i < posicaoAll.size(); i++) {
-                if (value.contains(posicaoAll.get(i)))
-                    return true;
-            }
-        }
-        return false;
-    }
-
 }

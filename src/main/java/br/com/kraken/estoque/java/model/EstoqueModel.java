@@ -2,6 +2,7 @@ package br.com.kraken.estoque.java.model;
 
 import jakarta.persistence.*;
 
+import javax.xml.crypto.Data;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -17,13 +18,13 @@ public class EstoqueModel {
     @Column (name = "quantidade_posicao")
     private int quantidadePosicao;
     @ElementCollection
-    @Column (name = "posicao_id")
-    private List<String> posicao;
+    @Column (name = "data_atualizacao")
+    private LocalDateTime dataAtualizacao;
 
-    public EstoqueModel(String nomeEstoque, int quantidadePosicao, List<String> posicao) {
+    public EstoqueModel(String nomeEstoque, int quantidadePosicao, LocalDateTime dataAtualizacao) {
         this.nomeEstoque = nomeEstoque;
         this.quantidadePosicao = quantidadePosicao;
-        this.posicao = posicao;
+        this.dataAtualizacao = dataAtualizacao;
     }
 
     public EstoqueModel(){}
@@ -52,12 +53,11 @@ public class EstoqueModel {
         this.quantidadePosicao = quantidadePosicao;
     }
 
-    public List<String> getPosicao() {
-        return posicao;
+    public LocalDateTime getDataAtualizacao() {
+        return dataAtualizacao;
     }
 
-    public void setPosicao(List<String> posicao) {
-        this.posicao = posicao;
+    public void setDataAtualizacao(LocalDateTime dataAtualizacao) {
+        this.dataAtualizacao = dataAtualizacao;
     }
-
 }
