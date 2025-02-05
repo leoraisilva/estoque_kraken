@@ -63,6 +63,9 @@ public class EstoqueController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not Found Estoque");
         estoqueModelOptional.get().setNomeEstoque(estoqueDTO.nomeEstoque());
         estoqueModelOptional.get().setQuantidadePosicao(estoqueDTO.quantidadePosicao());
+        estoqueModelOptional.get().setValorMaximo(estoqueDTO.valorMaximo());
+        estoqueModelOptional.get().setValorMinimo(estoqueDTO.valorMinimo());
+        estoqueModelOptional.get().setQuantidadeProduto(estoqueDTO.quantidadeProduto());
         estoqueModelOptional.get().setDataAtualizacao(LocalDateTime.now(ZoneId.of("America")));
         return ResponseEntity.status(HttpStatus.CREATED).body(estoqueService.getEstoqueRepository().save(estoqueModelOptional.get()));
     }
