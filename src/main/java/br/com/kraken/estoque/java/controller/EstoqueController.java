@@ -52,7 +52,7 @@ public class EstoqueController {
     public ResponseEntity<Object> cadastrarEstoque (@RequestBody @Valid EstoqueDTO estoqueDTO) {
         EstoqueModel estoqueModel = new EstoqueModel ();
         BeanUtils.copyProperties(estoqueDTO, estoqueModel);
-        estoqueModel.setDataAtualizacao(LocalDateTime.now(ZoneId.of("America")));
+        estoqueModel.setDataAtualizacao(LocalDateTime.now(ZoneId.of("America/Sao_Paulo")));
         return ResponseEntity.status(HttpStatus.CREATED).body(estoqueService.getEstoqueRepository().save(estoqueModel));
     }
 
@@ -62,11 +62,11 @@ public class EstoqueController {
         if(!estoqueModelOptional.isPresent())
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Not Found Estoque");
         estoqueModelOptional.get().setNomeEstoque(estoqueDTO.nomeEstoque());
-        estoqueModelOptional.get().setQuantidadePosicao(estoqueDTO.quantidadePosicao());
         estoqueModelOptional.get().setValorMaximo(estoqueDTO.valorMaximo());
         estoqueModelOptional.get().setValorMinimo(estoqueDTO.valorMinimo());
         estoqueModelOptional.get().setQuantidadeProduto(estoqueDTO.quantidadeProduto());
-        estoqueModelOptional.get().setDataAtualizacao(LocalDateTime.now(ZoneId.of("America")));
+        estoqueModelOptional.get().setDescricao(estoqueDTO.descricao());
+        estoqueModelOptional.get().setDataAtualizacao(LocalDateTime.now(ZoneId.of("America/Sao_Paulo")));
         return ResponseEntity.status(HttpStatus.CREATED).body(estoqueService.getEstoqueRepository().save(estoqueModelOptional.get()));
     }
 }

@@ -15,25 +15,25 @@ public class EstoqueModel {
     private UUID estoqueid;
     @Column(name = "nome_estoque", nullable = false, unique = true)
     private String nomeEstoque;
-    @Column(name = "valor_minimo", nullable = false, unique = true)
+    @Column(name = "valor_minimo", nullable = false)
     private int valorMaximo;
-    @Column(name = "valor_maximo", nullable = false, unique = true)
+    @Column(name = "valor_maximo", nullable = false)
     private int valorMinimo;
-    @Column(name = "quantidade_produto")
+    @Column(name = "quantidade_produto", nullable = false )
     private int quantidadeProduto;
-    @Column (name = "quantidade_posicao")
-    private int quantidadePosicao;
-    @ElementCollection
+    @Column(name = "descricao")
+    private String descricao;
     @Column (name = "data_atualizacao")
     private LocalDateTime dataAtualizacao;
 
-    public EstoqueModel(String nomeEstoque, int valorMaximo, int valorMinimo, int quantidadeProduto, int quantidadePosicao, LocalDateTime dataAtualizacao) {
+    public EstoqueModel(String nomeEstoque, int valorMaximo, int valorMinimo, int quantidadeProduto, String descricao, LocalDateTime dataAtualizacao) {
         this.nomeEstoque = nomeEstoque;
         this.valorMaximo = valorMaximo;
         this.valorMinimo = valorMinimo;
         this.quantidadeProduto = quantidadeProduto;
-        this.quantidadePosicao = quantidadePosicao;
+        this.descricao = descricao;
         this.dataAtualizacao = dataAtualizacao;
+        this.i
     }
 
     public EstoqueModel(){}
@@ -52,14 +52,6 @@ public class EstoqueModel {
 
     public void setNomeEstoque(String nomeEstoque) {
         this.nomeEstoque = nomeEstoque;
-    }
-
-    public int getQuantidadePosicao() {
-        return quantidadePosicao;
-    }
-
-    public void setQuantidadePosicao(int quantidadePosicao) {
-        this.quantidadePosicao = quantidadePosicao;
     }
 
     public LocalDateTime getDataAtualizacao() {
@@ -92,5 +84,13 @@ public class EstoqueModel {
 
     public void setQuantidadeProduto(int quantidadeProduto) {
         this.quantidadeProduto = quantidadeProduto;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 }
