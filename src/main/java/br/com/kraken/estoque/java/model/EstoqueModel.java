@@ -33,7 +33,6 @@ public class EstoqueModel {
         this.quantidadeProduto = quantidadeProduto;
         this.descricao = descricao;
         this.dataAtualizacao = dataAtualizacao;
-        this.i
     }
 
     public EstoqueModel(){}
