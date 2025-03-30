@@ -12,8 +12,8 @@ services:
     ports:
       - "8082:8082"
     networks:
-      - java_vendas-network
+      - kraken_vendas-network
 
 networks:
-  java_vendas-network:
+  kraken_vendas-network:
     external: true
