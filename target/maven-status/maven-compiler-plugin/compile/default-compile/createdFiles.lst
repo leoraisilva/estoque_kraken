@@ -1,6 +1,0 @@
-br\com\kraken\estoque\java\controller\EstoqueController.class
-br\com\kraken\estoque\java\modelDTO\EstoqueDTO.class
-br\com\kraken\estoque\EstoqueApplication.class
-br\com\kraken\estoque\java\repository\EstoqueRepository.class
-br\com\kraken\estoque\java\model\EstoqueModel.class
-br\com\kraken\estoque\java\service\EstoqueService.class

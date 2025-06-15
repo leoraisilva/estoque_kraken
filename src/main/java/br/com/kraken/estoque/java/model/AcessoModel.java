@@ -75,8 +75,6 @@ public class AcessoModel implements UserDetails {
         else  return List.of(new SimpleGrantedAuthority("ROLE_SALES"));
     }
 
-
-
     @Override
     public String getPassword() {
         return null;
