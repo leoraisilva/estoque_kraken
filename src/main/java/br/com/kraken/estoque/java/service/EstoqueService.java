@@ -2,6 +2,9 @@ package br.com.kraken.estoque.java.service;
 
 import br.com.kraken.estoque.java.model.EstoqueModel;
 import br.com.kraken.estoque.java.repository.EstoqueRepository;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
