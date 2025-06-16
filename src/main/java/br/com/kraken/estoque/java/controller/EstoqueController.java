@@ -40,11 +40,13 @@ public class EstoqueController {
     }
 
     @GetMapping
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<Object> listarEstoque () {
         return ResponseEntity.status(HttpStatus.OK).body(estoqueService.getEstoqueRepository().findAll());
     }
 
     @GetMapping ("/{id}")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public ResponseEntity<Object> encontrarEstoque (@PathVariable (value = "id") UUID id) {
         Optional<EstoqueModel> estoqueModelOptional = estoqueService.getEstoqueRepository().findById(id);
         return estoqueModelOptional.<ResponseEntity<Object>>map(
@@ -54,7 +56,7 @@ public class EstoqueController {
     }
 
     @DeleteMapping ("/{id}")
-    @PreAuthorize("hasAnyRole('ADMIN', 'SALES')")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Object> deletarEstoque (@PathVariable (value = "id") UUID id ){
         Optional<EstoqueModel> estoqueModelOptional = estoqueService.getEstoqueRepository().findById(id);
         if (!estoqueModelOptional.isPresent())
@@ -64,7 +66,7 @@ public class EstoqueController {
     }
 
     @PostMapping
-    @PreAuthorize("hasAnyRole('ADMIN', 'SALES')")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Object> cadastrarEstoque (@RequestBody @Valid EstoqueDTO estoqueDTO) {
         EstoqueModel estoqueModel = new EstoqueModel ();
         BeanUtils.copyProperties(estoqueDTO, estoqueModel);
@@ -73,7 +75,7 @@ public class EstoqueController {
     }
 
     @PutMapping ("/{id}")
-    @PreAuthorize("hasAnyRole('ADMIN', 'SALES')")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Object> alterarEstoque (@PathVariable (value = "id") UUID id, @RequestBody @Valid EstoqueDTO estoqueDTO) {
         Optional<EstoqueModel> estoqueModelOptional = estoqueService.getEstoqueRepository().findById(id);
         if(!estoqueModelOptional.isPresent())
