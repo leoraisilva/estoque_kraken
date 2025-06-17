@@ -1,0 +1,14 @@
+/home/summ17/Documentos/projeto/kraken/estoque_kraken/src/main/java/br/com/kraken/estoque/EstoqueApplication.java
+/home/summ17/Documentos/projeto/kraken/estoque_kraken/src/main/java/br/com/kraken/estoque/java/configs/EstoqueSecurity.java
+/home/summ17/Documentos/projeto/kraken/estoque_kraken/src/main/java/br/com/kraken/estoque/java/configs/SecurityFilter.java
+/home/summ17/Documentos/projeto/kraken/estoque_kraken/src/main/java/br/com/kraken/estoque/java/configs/TokenService.java
+/home/summ17/Documentos/projeto/kraken/estoque_kraken/src/main/java/br/com/kraken/estoque/java/controller/EstoqueController.java
+/home/summ17/Documentos/projeto/kraken/estoque_kraken/src/main/java/br/com/kraken/estoque/java/model/AcessoModel.java
+/home/summ17/Documentos/projeto/kraken/estoque_kraken/src/main/java/br/com/kraken/estoque/java/model/EstoqueModel.java
+/home/summ17/Documentos/projeto/kraken/estoque_kraken/src/main/java/br/com/kraken/estoque/java/model/Rules.java
+/home/summ17/Documentos/projeto/kraken/estoque_kraken/src/main/java/br/com/kraken/estoque/java/modelDTO/AcessoDTO.java
+/home/summ17/Documentos/projeto/kraken/estoque_kraken/src/main/java/br/com/kraken/estoque/java/modelDTO/EstoqueDTO.java
+/home/summ17/Documentos/projeto/kraken/estoque_kraken/src/main/java/br/com/kraken/estoque/java/repository/AcessoRepository.java
+/home/summ17/Documentos/projeto/kraken/estoque_kraken/src/main/java/br/com/kraken/estoque/java/repository/EstoqueRepository.java
+/home/summ17/Documentos/projeto/kraken/estoque_kraken/src/main/java/br/com/kraken/estoque/java/service/AcessoService.java
+/home/summ17/Documentos/projeto/kraken/estoque_kraken/src/main/java/br/com/kraken/estoque/java/service/EstoqueService.java
